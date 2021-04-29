@@ -20,7 +20,9 @@ express()
         console.log(executeMathematicalRequest(operation, number_one, number_two));
         res.json(executeMathematicalRequest(operation, number_one, number_two));
     })
-    .listen(PORT, () => console.log(`Server listening on port: ${PORT}`));
+    .listen(PORT, () => {
+        console.log(`Server listening on port: ${PORT}`)
+    });
 
 function executeMathematicalRequest(operation, number_one, number_two) {
     switch (operation) {
