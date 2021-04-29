@@ -8,11 +8,14 @@ const PORT = process.env.PORT || 3000;
 express()
     .use(express.static(path.join(__dirname, 'public')))
     .use(bodyParser.json())
+    .get('/', cors(), (req, res) => {
+        res.json('This is Lab 2');
+    })
     .get('/calc', cors(), async (req, res) => {
         const operation = req.query.operation;
         const number_one = parseInt(req.query.numberone);
         const number_two = parseInt(req.query.numbertwo);
-    
+
         console.log(operation + number_one + number_two);
         console.log(executeMathematicalRequest(operation, number_one, number_two));
         res.json(executeMathematicalRequest(operation, number_one, number_two));
